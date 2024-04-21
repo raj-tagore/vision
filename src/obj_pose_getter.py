@@ -75,11 +75,11 @@ class Vision:
 def determineIfBotIsIdle(data):
     global botShouldScan
     magnitude = np.linalg.norm(data.velocity) 
-    if magnitude < 0.03 and botShouldScan:
+    if magnitude < 0.02 and botShouldScan:
         rospy.sleep(6.9)
         vision.get_poses()
         botShouldScan = False
-    elif magnitude >= 0.05:
+    elif magnitude >= 0.1:
         botShouldScan = True
     
 if __name__ == "__main__":
